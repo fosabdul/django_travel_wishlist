@@ -65,9 +65,7 @@ class TestAddNewPlace(TestCase):
         self.assertEqual(1, len(response_places))
         tokyo_response = response_places[0]
 
-        # Expect this data to be in the database. Use get() to get data with
-        # the values expected. Will throw an exception if no data, or more than
-        # one row, matches. Remember throwing an exception will cause this test to fail
+      
         tokyo_in_database = Place.objects.get(name='Tokyo', visited=False)
 
         # Is the data used to render the template, the same as the data in the database?
@@ -84,9 +82,7 @@ class TestAddNewPlace(TestCase):
         # Should be 2 items
         self.assertEqual(2, len(response_places))
 
-        # Expect this data to be in the database. Use get() to get data with
-        # the values expected. Will throw an exception if no data, or more than
-        # one row, matches. Remember throwing an exception will cause this test to fail
+  
         place_in_database = Place.objects.get(name='Yosemite', visited=False)
         place_in_database = Place.objects.get(name='Tokyo', visited=False)
 
@@ -109,9 +105,7 @@ class TestAddNewPlace(TestCase):
         # Should be 0 items - have not added any un-visited places
         self.assertEqual(0, len(response_places))
 
-        # Expect this data to be in the database. Use get() to get data with
-        # the values expected. Will throw an exception if no data, or more than
-        # one row, matches. Remember throwing an exception will cause this test to fail
+      
         place_in_database = Place.objects.get(name='Tokyo', visited=True)
 
 
